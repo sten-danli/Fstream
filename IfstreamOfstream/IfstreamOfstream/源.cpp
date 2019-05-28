@@ -28,7 +28,7 @@ int main()
 */
 
 /*
-//从二进制文件读取到屏幕方法。
+//从二进制文件读取到ar[10]内和显示到屏幕方法。
 int main()
 {
 	int ar[10];
@@ -39,8 +39,8 @@ int main()
 		exit(1);
 	}
 
-	ifile.read((char*)ar, sizeof(ar));
-	for (int i = 0; i < 10; i++)
+	ifile.read((char*)ar, sizeof(ar));	//读取到ar[10]内。
+	for (int i = 0; i < 10; i++)		//显示到屏幕方法。
 	{
 		cout << ar[i] << " " ;
 	 }
@@ -97,19 +97,22 @@ int main()
 //二部分：对test1.txt文件的随机读写方法。
 int main()
 {
-	ifstream ifile("test1.txt", ios::in);
+	int ar[10];
+	ifstream ifile("test1.txt", ios::in | ios::binary);
 		if (!ifile)
 		{
 			cerr << "Open File Faild" << endl;
 			exit(1);
 		}
+		ifile.read((char*)ar, sizeof(ar));
+		
 		int pos;
 		int value;
 		while (1)
 		{
 			cout << "Position Eingeben:>";
 			cin >> pos;
-			ifile.seekg(ios::beg);//指针从什么地方开始，beg的意思是从begin开始。
+			ifile.seekg(pos,ios::beg);//指针从什么地方开始，beg的意思是从begin开始。
 			ifile >> value;
 
 			cout << "value = " <<value <<endl;
