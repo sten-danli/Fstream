@@ -1,11 +1,13 @@
 //文本文件的读写方式
-
-//将内容输入到Test1.txt
-
 #include <iostream>
 #include <fstream>
 using namespace std;
+
+//将二进制文件写入Test2.txt
+
+
 /*
+//将内容输入到Test1.txt
 int main()
 {
 	int ar[] = { 12,23,4,5,63,25,6,3,354 };
@@ -25,8 +27,7 @@ int main()
 }
 */
 
-
-//将内容从Test1.txt调出显示要屏幕上。
+//将文档内Test1.txt的内容调出，显示到屏幕上。
 int main()
 {
 	int ar[10];
@@ -41,8 +42,7 @@ int main()
 	{
 		ifile >> ar[i];
 	}
-	
-
+	//打印出文档内容到屏幕上。
 	for (int i = 0; i <= 10; i++)
 	{
 		cout << ar[i] << " ";
