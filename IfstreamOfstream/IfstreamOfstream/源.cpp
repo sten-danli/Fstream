@@ -1,14 +1,18 @@
-//文本文件的读写方式永远的四部曲重点：
-//1.第一步先定义文件对象。
-//2.第二部亦相应的方式打开文件。
-//3.第三步用相应的方式读取文件。
-//4.第四步关闭文件流。
+//一部分：文本文件的读写方式，二部分：对文件的随机读写。
+
+
+/*第一部分
+文件读取永远的四部曲重点：
+1.第一步先定义文件对象。
+2.第二部亦相应的方式打开文件。
+3.第三步用相应的方式读取文件。
+4.第四步关闭文件流。
+*/
 #include <iostream>
 #include <fstream>
 using namespace std;
-
-//通过二进制方法把数据写入Test2.txt文件里面。
 /*
+//通过二进制方法把数据写入Test2.txt文件里面。
 int main()
 {
 	int ar[] = { 12,23,4,5,63,25,6,3,354 };					//1.第一步先定义文件对象。
@@ -22,6 +26,8 @@ int main()
 	return 0;
 }
 */
+
+/*
 //从二进制文件读取到屏幕方法。
 int main()
 {
@@ -32,18 +38,18 @@ int main()
 		cerr << "Open File Faild" << endl;
 		exit(1);
 	}
-	ifile.read((char*)ar, sizeof(ar));
 
+	ifile.read((char*)ar, sizeof(ar));
 	for (int i = 0; i < 10; i++)
 	{
 		cout << ar[i] << " " ;
-	}
+	 }
 	ifile.close();
 }
-		
+*/	
 		
 /*
-//将内容输入到Test1.txt
+//将数据内容输入到Test1.txt
 int main()
 {
 	int ar[] = { 12,23,4,5,63,25,6,3,354 };
@@ -63,8 +69,8 @@ int main()
 }
 */
 
-//将文档从Test1.txt的内容调出，显示到屏幕上。
 /*
+//将Test1.txt的内容调出，显示到屏幕上。
 int main()
 {
 	int ar[10];
@@ -87,3 +93,25 @@ int main()
 	ifile.close();
 }
 */
+
+//二部分：对test1.txt文件的随机读写方法。
+int main()
+{
+	ifstream ifile("test1.txt", ios::in);
+		if (!ifile)
+		{
+			cerr << "Open File Faild" << endl;
+			exit(1);
+		}
+		int pos;
+		int value;
+		while (1)
+		{
+			cout << "Position Eingeben:>";
+			cin >> pos;
+			ifile.seekg(ios::beg);//指针从什么地方开始，beg的意思是从begin开始。
+			ifile >> value;
+
+			cout << "value = " <<value <<endl;
+		}
+}
