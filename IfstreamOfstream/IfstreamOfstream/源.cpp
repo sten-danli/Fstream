@@ -1,3 +1,5 @@
+//文本文件的读写方式
+
 //将内容输入到Test1.txt
 
 #include <iostream>
