@@ -11,6 +11,7 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
+
 /*
 //通过二进制方法把数据写入Test2.txt文件里面。
 int main()
@@ -46,8 +47,8 @@ int main()
 	 }
 	ifile.close();
 }
-*/	
-		
+*/
+
 /*
 //将数据内容输入到Test1.txt
 int main()
@@ -94,27 +95,33 @@ int main()
 }
 */
 
-//二部分：对test1.txt文件的随机读写方法。
+//二部分：对test2.txt文件的随机读写方法。
+
 int main()
 {
 	int ar[10];
-	ifstream ifile("test1.txt", ios::in | ios::binary);
-		if (!ifile)
-		{
-			cerr << "Open File Faild" << endl;
-			exit(1);
-		}
-		ifile.read((char*)ar, sizeof(ar));
-		
-		int pos;
-		int value;
-		while (1)
-		{
-			cout << "Position Eingeben:>";
-			cin >> pos;
-			ifile.seekg(pos,ios::beg);//指针从什么地方开始，beg的意思是从begin开始。
-			ifile >> value;
+	ifstream ifile("test2.txt", ios::in | ios::binary);
+	if (!ifile)
+	{
+		cerr << "Open File Faild" << endl;
+		exit(1);
+	}
+	ifile.read((char*)ar, sizeof(ar));
+	for (int i = 0; i <= 10; i++)
+	{
+		ifile >> ar[i];
+	}
 
-			cout << "value = " <<value <<endl;
-		}
+	int pos;
+	int value;
+	while (1)
+	{
+		cout << "Position Eingeben:>";
+		cin >> pos;
+		cout << ar[pos] << endl;
+		//ifile.seekg(pos, ios::beg);//指针从什么地方开始，beg的意思是从begin开始。
+		//ifile >> value;
+
+		//cout << "value = " << value << endl;
+	}
 }
