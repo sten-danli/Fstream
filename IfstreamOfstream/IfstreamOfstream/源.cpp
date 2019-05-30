@@ -107,8 +107,9 @@ int main()
 		exit(1);
 	}
 	ifile.read((char*)ar, sizeof(ar));
-	for (int i = 0; i <= 10; i++)
+	for (int i = 0; i <= 8; i++)
 	{
+		cout << ar[i] << endl;
 		ifile >> ar[i];
 	}
 
@@ -124,4 +125,5 @@ int main()
 
 		//cout << "value = " << value << endl;
 	}
+	ifile.close();
 }
